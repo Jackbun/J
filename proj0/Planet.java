@@ -6,6 +6,7 @@ public class Planet{
   public double yyVel;
   public double mass;
   public String imgFileName;
+  public static final double G = 6.67e-11;
   public Planet(double xP, double yP, double xV, double yV, double m, String img){
      xxPos = xP;
      yyPos = yP;
@@ -24,25 +25,24 @@ public class Planet{
     this.imgFileName = p.imgFileName;
   }
   public double calcDistance(Planet p){
-    double r = Math.sqrt((this.xxPos- p.xxPos)*(this.xxPos- p.xxPos)+ (this.yyPos-p.yyPos)*(this.xxPos- p.xxPos));
-    r = Math.ceil(r);
-    return r;
+    double dx = this.xxPos - p.xxPos;
+        double dy = this.yyPos - p.yyPos;
+        double r = Math.hypot(dx, dy);
+        return r;
   }
- public static final double G = 6.67*Math.pow(10,-11);
+
  public double calcForceExertedBy(Planet p){
     double F = (G*this.mass*p.mass)/(this.calcDistance(p)*this.calcDistance(p));
     return F;
 
  }
  public double calcForceExertedByX(Planet p){
-   double x = this.xxPos- p.xxPos;
-   x = (x < 0 ? -x : x);
+   double x = p.xxPos - this.xxPos;
    double Fx = (this.calcForceExertedBy(p)*x)/this.calcDistance(p);
    return Fx;
  }
  public double calcForceExertedByY(Planet p){
-   double y = this.yyPos- p.yyPos;
-   y = (y < 0 ? -y : y);
+   double y = p.yyPos - this.yyPos;
    double Fy = (this.calcForceExertedBy(p)*y)/this.calcDistance(p);
    return Fy;
  }
