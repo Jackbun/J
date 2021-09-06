@@ -1,12 +1,12 @@
 import java.lang.Math;
 public class Planet{
-  public double xxPos;
-  public double yyPos;
-  public double xxVel;
-  public double yyVel;
-  public double mass;
-  public String imgFileName;
-  public static final double G = 6.67e-11;
+   double xxPos;
+   double yyPos;
+   double xxVel;
+   double yyVel;
+   double mass;
+   String imgFileName;
+   private static final double G = 6.67e-11;
   public Planet(double xP, double yP, double xV, double yV, double m, String img){
      xxPos = xP;
      yyPos = yP;
