@@ -8,7 +8,6 @@ public class DebugExercise1 {
         int result = Math.round(quotient);
         return result;
     }
-
     public static void main(String[] args) {
         int t = 10;
         int b = 2;
@@ -23,6 +22,7 @@ public class DebugExercise1 {
         int t3 = 3;
         int b3 = 4;
         int result3 = divideThenRound(t3, b3);
+
         System.out.println("round(" + t3 + "/" + b3 + ")=" + result3);
     }
 }
